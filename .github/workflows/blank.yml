@@ -5,4 +5,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: build
-        run: echo "testing"
+        run: echo "building..."
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: test
+        run: echo "testing..."
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: deploy
+        run: echo "deploying..."
