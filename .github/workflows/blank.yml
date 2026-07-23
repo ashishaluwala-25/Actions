@@ -1,13 +1,8 @@
 name: action
 on: workflow_dispatch
 jobs:
-  task-1:
+  build:
     runs-on: ubuntu-latest
     steps:
-      - name: test
-        run: |
-          echo "testing"
-          date
-          hostname
-          free -m
-          df -h
+      - name: build
+        run: echo "testing"
