@@ -4,8 +4,10 @@ jobs:
   task-1:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "testing 1"
-      - run: date
-      - run: hostname
-      - run: free -m
-      - run: df -h
+      - name: test
+        run: |
+          echo "testing"
+          date
+          hostname
+          free -m
+          df -h
