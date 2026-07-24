@@ -6,5 +6,14 @@ jobs:
     steps:
       - name: checkout
         uses: actions/checkout@v4
-      - name: build
-        run: cat index.html
+      - name: aws configure
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id: ${{ secrets.ACCESS_KEY }}
+          aws-secret-access-key-id: ${{ secrets.SECRET_ACCESS_KEY }}
+          aws-region: us-east-1
+      - name: sync to s3
+        run: |
+          aws s3 sync ./ s3://github-action-s3-2407/ \
+          --exclude "*" \
+          --include "index.html"
