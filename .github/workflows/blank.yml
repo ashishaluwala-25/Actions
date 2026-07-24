@@ -3,6 +3,11 @@ on:
   push:
     branches:
       - test
+  pull_request:
+    types:
+      - opened
+    branches:
+      - test
 jobs:
   build:
     runs-on: ubuntu-latest
