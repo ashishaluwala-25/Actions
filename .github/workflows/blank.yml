@@ -1,16 +1,8 @@
 name: action
-on: 
-  push:
-    branches:
-      - test
-  pull_request:
-    types:
-      - opened
-    branches:
-      - test
+on: push
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - name: build
-        run: echo "building..."
+        run: echo "building ${{ vars.Home }}"
