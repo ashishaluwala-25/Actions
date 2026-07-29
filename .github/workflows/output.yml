@@ -13,3 +13,9 @@ jobs:
         run: echo "this is main branch"
       - name: run this step
         run: echo "this is manual"
+  job2:
+    runs-on: ubuntu-latest
+    steps:
+      - name: run if test branch push
+        if: github.ref == 'refs/heads/test'
+        run: echo "this is test branch"
