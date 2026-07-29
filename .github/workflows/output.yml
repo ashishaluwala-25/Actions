@@ -2,10 +2,16 @@ name: test-outputs
 on: push
 jobs:
   job1:
+    outputs:
+      version: ${{ steps.step1.outputs.version }}
     runs-on: ubuntu-latest
     steps:
-      - name: test-output-for-steps
+      - name: test-output-for-jobs-1
         id: step1
         run: echo "version=0.1" >> $GITHUB_OUTPUT
-      - name: checking
-        run: echo "version is ${{ steps.step1.outputs.version }}"
+  job2:
+    needs: job1
+    runs-on: ubuntu-latest
+    steps:
+      - name: test-output-for-jobs-2
+        run: echo "version is ${{ needs.job1.outputs.version }}"
