@@ -1,9 +1,12 @@
-name: test-if-||
-on: push
+name: build & deploy
+on: 
+  pull_request:
+    types: 
+      - opened
+      - synchronize
 jobs:
-  test:
+  build:
     runs-on: ubuntu-latest
     steps:
-      - name: for if or
-        if: github.actor == 'ashish' || github.actor == 'ashishaluwala'
-        run: echo "trigger"
+      - name: build step
+        run: echo "building application"
