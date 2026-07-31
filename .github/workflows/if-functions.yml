@@ -30,11 +30,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: success
-        run: echo "success"
+        run: echo "success mail sent to team"
   failure_notification:
     needs: ['quality-check', 'dev-deploy', 'prod-deploy']
     if: failure()
     runs-on: ubuntu-latest
     steps:
       - name: failure
-        run: echo "failure"
+        run: echo "failure mail sent to team"
