@@ -24,3 +24,17 @@ jobs:
     steps:
       - name: deploy to prod
         run: echo "deploy in prod environment"
+  success_notification:
+    needs: ['quality-check', 'dev-deploy', 'prod-deploy']
+    if: always() && !failure()
+    runs-on: ubuntu-latest
+    steps:
+      - name: success
+        run: echo "success"
+  failure_notification:
+    needs: ['quality-check', 'dev-deploy', 'prod-deploy']
+    if: failure()
+    runs-on: ubuntu-latest
+    steps:
+      - name: failure
+        run: echo "failure"
